@@ -1,0 +1,144 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+$purple: #de53f3;
+$gray: #e5e5e5;
+$white: #FFF;
+
+@mixin oswald { font-family: 'Oswald', sans-serif;}
+@mixin lato { font-family: 'Lato', sans-serif;}
+@mixin merriweather {font-family:'Merriweather', serif; font-style: italic; text-transform: none; font-style: italic;}
+@mixin cover { background-size:cover; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover;}
+
+@mixin iphone { @media (max-width: 375px) {@content;}}
+@mixin iphoneplus { @media (max-width: 414px) { @content;}}
+@mixin ipad { @media (max-width: 768px) { @content;}}
+@mixin ipad-pro { @media (min-width: 1024px) {@content;}}
+@mixin lg { @media (min-width: 1200px) {@content;}}
+@mixin xlg { @media (min-width: 1450px) {@content;}}
+@mixin smdevice { @media (min-width: 576px) {@content;}}
+@mixin lgdevice {@media (min-width: 992px) {@content;}}
+
+body {@include oswald; text-transform: uppercase; overflow-x: hidden; padding-bottom: 3em;}
+hr { border: black solid .5px;}
+
+/*logo*/
+.logo { margin-top: -3em;
+@include iphoneplus { width: 95px; margin-top: 1%; margin-left: .4em;} }
+/*social media bar*/
+#log-in {
+@include iphoneplus { display: none; }
+padding:0px;
+p { color:$purple; display:inline-block; width: 250px; margin-left: 45%;
+@include ipad-pro { margin-left: 38%; margin-top: 1.5em;}
+@include lg { margin-left: 45%;}
+@include xlg { margin-left: 56%;}
+@include ipad { size: .5em;width: 229px; margin-left: 35%; margin-top: 1em; }
+i {color:black;}
+}
+input {font-size: .9em; padding: .7em 12.5em 0.5em .9em; text-transform: uppercase; font-weight: lighter; background: $gray url("../images/search.png") no-repeat 95% 50%; border: 0px solid $gray; border-radius: 41px; -moz-border-radius: 41px; -webkit-border-radius: 41px;
+@include ipad-pro {padding: 0.7em 6.5em 0.5em .9em;}
+@include ipad { padding: 0.2em 0.4em 0.4em .9em;} }
+button {background: $purple url("../images/login.png") no-repeat 70% 48%; border:0px solid $purple; color: white; text-align: left; padding: 1.5em 2.5em 1.5em 2em; display: inline-block; width: 10.3%; height: 60%; max-width: 150px;
+@include ipad-pro {background: $purple url("../images/login.png") no-repeat 70% 48%; padding: 1.5em 2.5em 1.5em 1em;}
+@include ipad { background: $purple url("../images/login.png") no-repeat 87% 48%;}
+}}
+/*nav-bar*/
+.navbar{ position:relative; z-index:1; a.nav-link{ color:white; letter-spacing: 2px; } }
+.nav-item-padding { padding-right:5em;
+	/*reactivity*/
+@include ipad-pro { padding-right:2em; }
+@include ipad { padding-right:1em;}}
+.navbar-dark .navbar-nav .nav-link { color:white;
+@include ipad { font-size:.8em;}}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:active { color:$purple; }
+.navbar-dark .navbar-toggler {border:none;}
+.navbar-toggler-icon { margin-left: 16em;
+@include smdevice {margin-left:25em;}
+@include iphone { margin-left: 14em;}}
+.bg-dark {background-color: black !important;}
+
+/*event cards*/
+.card-title{color:$purple; font-size:26px;}
+.card-text {@include merriweather; text-transform: none; font-size: 1em;}
+.card-img-top{ border-radius: 0px;
+@include iphoneplus {width: 50%; border: 4px solid white;}}
+.responsive-text{  padding: 0px; display:none;
+@include iphoneplus {z-index: 3; position: absolute; margin-left: 13em; display:inline-block; padding-right: 1em; margin-top:2em;}
+@include iphone {@include iphoneplus {z-index: 3; position: absolute; margin-left: 11em; display:inline-block; padding-right: 1em; margin-top:2em;}}
+img { margin-top: -1.6em; margin-left: 34.8%; }}
+.tickets { display:none; h5 { color:white; }
+@include iphoneplus { display:block; background-color:$purple;
+i {color:white;}}
+@include smdevice{}}
+.card-body.transparent.pl-0.pr-0 {@include iphoneplus { display: none; }}
+.card-body {.row {background-color: black; max-width: 100%; margin-left: 0em; margin-top:-3em; color:$purple;
+	@include iphoneplus{ margin-top: -1.3em;}}}
+
+/*newsletter*/
+#upcoming-events {background-color: $gray;
+h1 { font-size: 26px;
+@include iphoneplus { text-align:center; } }}
+#newsletter{ background-image: url("../images/newsletter.jpg"); padding-top: 5em; padding-bottom: 8em; @include cover;
+	/*reactivity*/
+@include ipad-pro { padding-top: 5em; padding-bottom: 5em; padding-left: 4em; padding-right: 4em; }
+@include ipad { padding-top: 5em; padding-bottom: 5em; padding-left: 2em; padding-right: 2em; }
+h1{ font-size:40px; color:white; letter-spacing: 2px;
+@include ipad { font-size:30px; color:white; letter-spacing: 2px;}
+@include lg {padding-bottom:.5em;}
+@include iphoneplus{ font-size: 18px; }}
+p { @include merriweather; color: $purple;
+@include iphoneplus{ font-size: .8em; }
+@include iphone { font-size: .8em; }}
+button { border: white 2px solid; background-color: transparent; color: white;padding: 1em 4em 1em 4em; text-transform: uppercase; display: block;
+@include lg { margin-top: 2em; }
+@include iphoneplus { padding: 1em 2em 1em 2em; font-size: 0.5em;}
+@include smdevice {margin-top:10px}
+}
+.btn-sheen { border: 1px solid; overflow: hidden; position: relative;
+span { z-index: 20; }
+&:after { background: #fff; content: ""; height: 155px; left: -75px; opacity: .2; position: absolute; top: -50px; transform: rotate(35deg); transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1); width: 50px; z-index: -10;
+}}
+.btn-sheen:hover { &:after { left: 120%; transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);}
+}
+}
+.floated-text { z-index:3; position: absolute; margin-left: 15%; width: 50%; margin-top: 4%;
+ /*reactivity*/
+@include lg { margin-top: 3em; }
+@include ipad-pro { margin-left: 24%; width: 40% }
+@include ipad { margin-left: 21%;}
+@include iphone {margin-top:21%;}}
+.black-overlay { background-color: rgba(0,0,0, 0.7); padding:8em; max-width: 50%; position:relative; z-index: 1; margin-top: 1%;}
+
+/*tabs*/
+.logo{ position:absolute; z-index: 3; }
+.nav-tabs {border-bottom: none; background-color: black}
+#social-map{ h4 {font-size:26px; display: inline-block; width:5em;
+@include ipad { font-size: 20px;} }
+span { font-size:1.1em; @include merriweather; color:$purple; }
+@include ipad { font-size: 0.7em; }}
+.nav-tabs .nav-link:active {position: relative; overflow: hidden; background-color: $purple; height: 109%; width:120%; color:white; padding: .7.8em; border-right:.5px white solid;}
+.nav-tabs .nav-link:active:before {content: ''; position: absolute; left: -54%; width: 149%; height: 100%;;  background-color: rgb(255, 255, 255);
+/* fallback */background-color: rgba(211, 69, 232, 0.5); top: 1; -webkit-transform: rotate(22deg);-moz-transform: rotate(22deg);transform: rotate(22deg);}
+.nav-tabs .nav-link {border: none; border-top-left-radius: 0rem; border-top-right-radius: 0rem; height: 100%; width:100%; padding: .8em; color:white;
+@include ipad { font-size: .5em; }}
+.get-directs { width: 7em !important; }
+#twitter-feed, #instagram-feed, #map { padding-top: 1em; width:100%; height: 72%; background-color: $gray; margin-top: 1em;
+a{ color:$purple;}
+@include iphoneplus { height:80%; }}
+.address { background-color: black; color:white; p { size: 16px !important; padding-top: .9rem; padding-bottom: .9rem;
+@include ipad { padding: 1em; }}
+@include ipad { font-size: 0.6em !important; }}
+.address-styles { font-family: 'Oswald', sans-serif !important; font-style: normal !important; font-weight: lighter; font-size: 14px !important; color: white !important;
+@include ipad { font-size: 0.6em !important; }}
+#map { background-image: url("../images/map.jpg"); @include cover;
+@include iphoneplus { padding: 8em; }}
+.directions {
+@include iphoneplus { margin-top: 2em; }
+@include iphone { margin-top: 3em; } }
+
+
